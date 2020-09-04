@@ -1,0 +1,45 @@
+# Balloons configuration file
+
+# Here is an example configuration section for a balloon which will be ignored by the plugin
+# 
+# In this configuration section, `example` is the balloon's ID.
+# In order to give a player the permission to hold this balloon,
+# we would give it the `customballoons.balloons.example` permission node
+
+example:
+
+  # `name`
+  #
+  # The name of the balloon in the GUI (color codes with `&` are supported)
+  # Don't forget to escape quotes/apostrophes in order to avoid getting parsing errors (examples below)
+
+  name: 'Example balloon'         # -> Example balloon
+  name: 'Rock ''n'' roll'         # -> Rock 'n' Roll
+  name: "Rock 'n' roll"           # -> Rock 'n' Roll
+  name: "I escape \" quotes"      # -> I escape " quotes
+  name: 'I escape '' apostrophes' # -> I escape ' apostrophes
+
+
+  # `texture-hash`
+  #
+  # The texture's hash to use for the balloon (frorm textures.minecraft.net)
+  # See https://minecraft-heads.com - on a head's page the 'Minecraft-URL' field in the 'Other' section at the bottom
+
+  texture-hash: e4f476b4e1304ec98ec24919518966ca832c8403a082ef12b353b590f38d818d # https://minecraft-heads.com/custom-heads/decoration/39494-amethyst-crystals
+
+
+  # `item`
+  #
+  # Item to be use for the balloon (as if put on an armor stand's helmet slot)
+  # You can append `:` followed by the damage value to apply to the item
+  # This will be ignored if `texture-hash` is set
+  #
+  # See https://helpch.at/docs/1.12.2/org/bukkit/Material.html
+
+  item: WOOL:14  # Red Wool
+  item: LEAVES   # Same as LEAVES:0
+
+
+slime:
+  name: '&aSlime Balloon'
+  item: SLIME_BLOCK

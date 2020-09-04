@@ -1,0 +1,19 @@
+name: CustomBalloons
+author: Binary
+description: A plugin which lets the players hold custom balloons
+main: net.binaryalien.customballoons.CustomBalloons
+version: 0.0.0
+commands:
+  balloons:
+    usage: '/balloons [reload|cleanup]'
+    description: "CustomBalloons main command"
+permissions:
+  customballoons.balloons.*:
+    default: op
+    description: 'Permission to hold any balloon'
+  customballoons.command.reload:
+    default: op
+    description: 'Permission to run the `/balloons reload` command'
+  customballoons.command.cleanup:
+    default: op
+    description: 'Permission to run the `/balloons cleanup` command'
