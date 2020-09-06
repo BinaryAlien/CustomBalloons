@@ -1,0 +1,3 @@
+# Automatically removes a player's balloon on certain conditions
+custom-remove-conditions:
+  on-vehicle-enter: false

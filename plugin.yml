@@ -2,7 +2,7 @@ name: CustomBalloons
 author: Binary
 description: A plugin which lets the players hold custom balloons
 main: net.binaryalien.customballoons.CustomBalloons
-version: 0.0.0
+version: 0.1.0
 commands:
   balloons:
     usage: '/balloons [reload|cleanup]'

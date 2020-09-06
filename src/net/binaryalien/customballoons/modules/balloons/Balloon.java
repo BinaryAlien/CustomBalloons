@@ -83,7 +83,8 @@ public class Balloon extends EntitySlime
 	@Override
 	public void B_()
 	{
-		bukkitThis.setLeashHolder(owner);
+		if (bukkitThis != null)
+			bukkitThis.setLeashHolder(owner);
 	}
 
 	public void update()
@@ -132,9 +133,15 @@ public class Balloon extends EntitySlime
 	public void destroy()
 	{
 		task.cancel();
+
+		owner.playSound(as.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1.0F, 1.0F);
+
 		as.remove();
 		bukkitThis.remove();
-		owner.playSound(as.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1.0F, 1.0F);
+
+		as = null;
+		bukkitThis = null;
+
 		Bukkit.getPluginManager().callEvent(new BalloonDestroyEvent(this));
 	}
 

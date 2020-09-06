@@ -18,6 +18,10 @@ public class CustomBalloons extends JavaPlugin
 	private static CustomBalloons instance;
 	public static CustomBalloons get() { return instance; }
 
+	/**
+	 * <p>Signature of the current instance of the plugin</p>
+	 * <p>This is written into the balloon's metadata to determine if they somehow got stuck</p>
+	 */
 	private UUID signature;
 
 	private LanguageModule language;
@@ -29,13 +33,9 @@ public class CustomBalloons extends JavaPlugin
 	public void onEnable()
 	{
 		instance = this;
-
 		signature = UUID.randomUUID();
 
-		super.onEnable();
-
-		if (!CustomBalloons.get().getDataFolder().exists())
-			CustomBalloons.get().getDataFolder().mkdirs();
+		saveDefaultConfig();
 
 		EntityTypes.b.a(EntityType.SLIME.getTypeId(), new MinecraftKey("CustomBalloons"), Balloon.class);
 
@@ -61,9 +61,13 @@ public class CustomBalloons extends JavaPlugin
 	 */
 	public void reload()
 	{
+		reloadConfig();
+
 		language.reload();
 		balloons.reload();
 		gui.reload();
+
+		signature = UUID.randomUUID();
 	}
 
 	public UUID getSignature()

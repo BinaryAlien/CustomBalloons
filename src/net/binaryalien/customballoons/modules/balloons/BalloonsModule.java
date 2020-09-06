@@ -18,9 +18,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.vehicle.VehicleEnterEvent;
 
 import net.binaryalien.customballoons.CustomBalloons;
 import net.binaryalien.customballoons.CustomBalloonsException;
+import net.binaryalien.customballoons.modules.LanguageModule;
 import net.binaryalien.customballoons.modules.Module;
 import net.binaryalien.customballoons.modules.balloons.events.BalloonDestroyEvent;
 import net.minecraft.server.v1_12_R1.World;
@@ -95,6 +97,22 @@ public class BalloonsModule implements Module, Listener
 		{
 			CustomBalloons.get().getLogger().info(event.getPlayer().getName() + " disconnected, removing it's balloon...");
 			balloon.destroy();
+		}
+	}
+
+	@EventHandler
+	public void onVehicleEnter(VehicleEnterEvent event)
+	{
+		if (!CustomBalloons.get().getConfig().getBoolean("custom-remove-conditions.on-vehicle-enter") || !(event.getEntered() instanceof Player))
+			return;
+
+		Player player = (Player) event.getEntered();
+		Balloon balloon = balloons.get(player);
+
+		if (balloon != null)
+		{
+			balloon.destroy(); // Will trigger BalloonDestroyEvent where we will remove the balloon from `balloons`
+			player.sendMessage(LanguageModule.Strings.MESSAGE_BALLOON_REMOVED_AUTO.asChatMessage());
 		}
 	}
 

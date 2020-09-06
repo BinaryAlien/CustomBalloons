@@ -58,6 +58,7 @@ public class LanguageModule implements Module
 		MESSAGE_COMMAND_CLEANUP_RESULT("message.command.cleanup-result", "&b%d &eentities removed"),
 		MESSAGE_BALLOON_SET("message.balloon.set", "&bHere is your balloon!"),
 		MESSAGE_BALLOON_REMOVED("message.balloon.removed", "&eYour balloon was removed!"),
+		MESSAGE_BALLOON_REMOVED_AUTO("message.balloon.removed-auto", "&eYour balloon was automatically removed!"),
 		MESSAGE_BALLOON_NO_BALLOONS("message.balloon.no-balloons", "&cYou do not have access to any ballons/no balloons were configured yet");
 
 		private String node;

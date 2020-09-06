@@ -54,7 +54,6 @@ public class CommandBalloons implements CommandExecutor, TabCompleter
 			}
 			else if (args[0].equalsIgnoreCase("cleanup"))
 			{
-
 				if (sender.hasPermission(Permissions.PERMISSION_COMMAND_CLEANUP.toString()))
 				{
 					int count = 0;
